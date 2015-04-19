@@ -1,0 +1,7 @@
+{
+  "remotes": [
+    {"key": "receiver", "title": "Receiver"},
+    {"key": "tv", "title": "TV"},
+    {"key": "ps3", "title": "PS3"}
+  ]
+}
