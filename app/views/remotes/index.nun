@@ -1,0 +1,16 @@
+{% extends "layouts/main.nun" %}
+
+{% block main %}
+  <ol class="breadcrumb">
+    <li>Remotes</li>
+  </ol>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 btn-group-vertical btn-group-lg text-center" role="group">
+        {% for remote in remotes %}
+          <a href="/remotes/{{remote.key}}" class="btn btn-default">{{remote.title}}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "layouts/main.nun" %}
+
+{% block main %}
+  {% raw %}
+    <div ng-controller="LightsController">
+      <ul>
+        <li ng-repeat="light in lights">
+          {{light.name}} - {{light}}
+        </li>
+      </ul>
+    </div>
+  {% endraw %}
+{% endblock %}
