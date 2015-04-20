@@ -1,13 +1,20 @@
 {% extends "layouts/main.nun" %}
 
 {% block main %}
+  <ol class="breadcrumb">
+    <li>Lights</li>
+  </ol>
   {% raw %}
-    <div ng-controller="LightsController">
-      <ul>
-        <li ng-repeat="light in lights">
-          {{light.name}} - {{light}}
-        </li>
-      </ul>
+    <div ng-controller="LightsController" class="container-fluid">
+      <div ng-repeat="light in lights" class="row row-striped row-padding-3px">
+        <div class="col-md-4">
+          <div><b>{{ light.loc }}: {{light.name}}</b></div>
+          <input type="checkbox" ng-if="light.classes['37']" ng-change="light.put()" ng-model="light.classes['37']['0'].value" />
+          <div ng-if="light.classes['38']" class="slider-container">
+            <input ng-model="light.classes['38']['0'].value" ng-change="light.put()" type="text" slider options="{from: 0, to: 99, step: 1, skin: 'round'}" />
+          </div>
+        </div>
+      </div>
     </div>
   {% endraw %}
 {% endblock %}
