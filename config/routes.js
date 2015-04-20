@@ -34,36 +34,6 @@ module.exports.routes.push({
 // Static
 module.exports.routes.push({
   method: 'GET',
-  path: '/js/angular/{file}',
-  handler: {
-    directory: {
-      path: './node_modules/angular/'
-    }
-  }
-})
-
-module.exports.routes.push({
-  method: 'GET',
-  path: '/js/restangular/{file}',
-  handler: {
-    directory: {
-      path: './node_modules/restangular/dist/'
-    }
-  }
-})
-
-module.exports.routes.push({
-  method: 'GET',
-  path: '/js/underscore/{file}',
-  handler: {
-    directory: {
-      path: './node_modules/underscore/'
-    }
-  }
-})
-
-module.exports.routes.push({
-  method: 'GET',
   path: '/{path*}',
   handler: {
     directory: {
