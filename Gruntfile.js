@@ -44,6 +44,9 @@ module.exports = function(grunt) {
       },
       dist: {
         src: [ 'dist' ]
+      },
+      public: {
+        src: [ 'public' ]
       }
     },
 
@@ -52,8 +55,23 @@ module.exports = function(grunt) {
         separator: ';'
       },
       dist: {
-        src: [ 'assets/modules/*.js', 'assets/controllers/*.js', 'assets/models/*.js', 'tmp/*.js' ],
+        src: [ 'assets/modules/*.js', 'assets/controllers/*.js', 'assets/models/*.js', 'assets/filters/*.js', 'tmp/*.js' ],
         dest: 'public/js/app.js'
+      }
+    },
+
+    copy: {
+      dev: {
+        files: [
+          {expand: true, flatten: true, dest: 'public/css/', src: ['node_modules/ng-slider/dist/css/*'], filter: 'isFile'},
+          {expand: true, flatten: true, dest: 'public/img/', src: ['node_modules/ng-slider/dist/img/*'], filter: 'isFile'},
+          {expand: true, flatten: true, dest: 'public/js/', src: [
+            'node_modules/angular/*.js',
+            'node_modules/restangular/dist/*.js',
+            'node_modules/underscore/*.js',
+            'node_modules/ng-slider/dist/*'
+            ], filter: 'isFile'}
+        ]
       }
     },
 
@@ -75,8 +93,8 @@ module.exports = function(grunt) {
 
     watch: {
       dev: {
-        files: ['Gruntfile.js', 'assets/*/*.js', '*.html'],
-        tasks: ['jshint', 'html2js:dist', 'concat:dist', 'sass:dev', 'clean:temp'],
+        files: ['Gruntfile.js', 'assets/*/*.js', 'assets/scss/*.scss', '*.html'],
+        tasks: ['jshint', 'html2js:dist', 'concat:dist', 'copy:dev', 'sass:dev', 'clean:temp'],
         //tasks: [ 'jshint', 'karma:unit', 'html2js:dist', 'concat:dist', 'sass:dev', 'clean:temp' ],
         options: {
           atBegin: true
@@ -130,6 +148,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect')
   grunt.loadNpmTasks('grunt-contrib-compress')
   grunt.loadNpmTasks('grunt-contrib-concat')
+  grunt.loadNpmTasks('grunt-contrib-copy')
   grunt.loadNpmTasks('grunt-contrib-uglify')
   grunt.loadNpmTasks('grunt-html2js')
   grunt.loadNpmTasks('grunt-contrib-watch')
@@ -137,7 +156,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-karma')
   grunt.loadNpmTasks('grunt-sass')
 
-  grunt.registerTask('dev', [ 'clean:dist', 'watch:dev' ])
+  grunt.registerTask('dev', [ 'clean:dist', 'clean:public', 'watch:dev' ])
   grunt.registerTask('test', [ 'clean:dist', 'jshint', 'karma:continuous' ])
   grunt.registerTask('minified', [ 'clean:dist', 'connect:server', 'watch:min' ])
   grunt.registerTask('package', [ 'clean:dist', 'jshint', 'karma:unit', 'html2js:dist', 'concat:dist',
