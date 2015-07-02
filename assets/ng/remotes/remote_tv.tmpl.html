@@ -1,0 +1,111 @@
+
+<div class="container-fluid">
+  <!-- direction pad -->
+  <div class="row">
+    <div class="col-xs-12 btn-group btn-group-lg text-center" role="group">
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('power on')">Power On</button>
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('up')">
+        <i class="glyphicon glyphicon-arrow-up"></i>
+      </button>
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('power off')">Power Off</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 btn-group btn-group-lg text-center" role="group">
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('left')">
+        <i class="glyphicon glyphicon-arrow-left"></i>
+      </button>
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('ok')">OK</button>
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('right')">
+        <i class="glyphicon glyphicon-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 btn-group btn-group-lg text-center" role="group">
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('exit')">Exit</button>
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('down')">
+        <i class="glyphicon glyphicon-arrow-down"></i>
+      </button>
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('info')">Info</button>
+    </div>
+  </div>
+
+  <!-- channel and volume -->
+  <div class="row">
+    <div class="col-xs-12 btn-group btn-group-lg text-center" role="group">
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('volume up')">
+        Volume <i class="glyphicon glyphicon-chevron-up"></i>
+      </button>
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('guide')">Guide</button>
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('channel up')">
+        Channel <i class="glyphicon glyphicon-chevron-up"></i>
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 btn-group btn-group-lg text-center" role="group">
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('volume down')">
+        Volume <i class="glyphicon glyphicon-chevron-down"></i>
+      </button>
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('mute')">Mute</button>
+      <button type="button" class="btn btn-default col-xs-offset-8 col-xs-4" role="button" ng-click="sendCmd('channel down')">
+        Channel <i class="glyphicon glyphicon-chevron-down"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- number pad -->
+  <div class="row">
+    <div class="col-xs-12 btn-group btn-group-lg text-center" role="group">
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('1')">1</button>
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('2')">2</button>
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('3')">3</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 btn-group btn-group-lg text-center" role="group">
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('4')">4</button>
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('5')">5</button>
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('6')">6</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 btn-group btn-group-lg text-center" role="group">
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('7')">7</button>
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('8')">8</button>
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('9')">9</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 btn-group btn-group-lg text-center" role="group">
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('-')">-</button>
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('0')">0</button>
+      <button type="button" class="btn btn-default col-xs-4" role="button" ng-click="sendCmd('previous')">Prev</button>
+    </div>
+  </div>
+
+  <!-- input -->
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <button type="button" class="btn btn-default btn-lg col-xs-6" role="button" ng-click="sendCmd('menu')">Menu</button>
+      <div class="btn-group col-xs-6" role="group">
+        <button type="button" class="btn btn-default btn-lg dropdown-toggle col-xs-12" data-toggle="dropdown">
+          Input <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#" role="button" ng-click="sendCmd('input tv')">TV</a></li>
+          <li><a href="#" role="button" ng-click="sendCmd('input hdmi 1')">HDMI 1</a></li>
+          <li><a href="#" role="button" ng-click="sendCmd('input hdmi 2')">HDMI 2</a></li>
+          <li><a href="#" role="button" ng-click="sendCmd('input hdmi 3')">HDMI 3</a></li>
+          <li><a href="#" role="button" ng-click="sendCmd('input hdmi 1')">HDMI 1</a></li>
+          <li><a href="#" role="button" ng-click="sendCmd('input hdmi 2')">HDMI 2</a></li>
+          <li><a href="#" role="button" ng-click="sendCmd('input av 1')">AV 1</a></li>
+          <li><a href="#" role="button" ng-click="sendCmd('input av 2')">AV 2</a></li>
+          <li><a href="#" role="button" ng-click="sendCmd('input component 1')">Component 1</a></li>
+          <li><a href="#" role="button" ng-click="sendCmd('input component 2')">Component 2</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
