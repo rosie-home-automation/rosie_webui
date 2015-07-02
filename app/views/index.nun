@@ -1,5 +1,0 @@
-{>"/layouts/main" /}
-
-{<main}
-  <h3>{name} some more text!</h3>
-{/main}

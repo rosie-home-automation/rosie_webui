@@ -1,0 +1,34 @@
+{
+  "name": "rosie_webui",
+  "main": "index.js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Olson3R/rosie_webui",
+  "description": "Web UI for the Rosie application.",
+  "keywords": [
+    "rosie",
+    "home",
+    "automation"
+  ],
+  "authors": [
+    "Scott Olson"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "~0.2.15",
+    "angular": "~1.4.1",
+    "ng-slider": "~2.3.7",
+    "restangular": "~1.5.1",
+    "underscore": "~1.8.3",
+    "angular-bootstrap-switch": "~0.4.1",
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4",
+    "fontawesome": "~4.3.0"
+  }
+}
