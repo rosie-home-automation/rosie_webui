@@ -2,7 +2,8 @@
 A web interface for the Rosie home automation software.
 
 ## Dependencies
-1. You will need gulp. You can install it globally with `npm install -g gulp`.
+1. Gulp: You can install it globally with `npm install -g gulp`.
+2. Bower: You can install it globally with `npm install -g bower`.
 
 ## Setup
 1. Edit the config file.
