@@ -3,7 +3,8 @@ angular.module('rosieApp', [
   'rosieApp.shared',
   'rosieApp.controllerApi',
   'rosieApp.lights',
-  'rosieApp.remotes'
+  'rosieApp.remotes',
+  'rosieApp.tasks'
 ])
   .config(['$urlRouterProvider', function($urlRouterProvider) {
     $urlRouterProvider.when('', '/lights')

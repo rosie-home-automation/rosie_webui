@@ -1,0 +1,8 @@
+<ol class="breadcrumb">
+  <li>Tasks</li>
+</ol>
+<div class="container-fluid">
+  <div ng-repeat="task in taskList" class="row row-striped row-padding-3px">
+    <button ng-click="sendTask(task)">{{ task.type }}</button>
+  </div>
+</div>
