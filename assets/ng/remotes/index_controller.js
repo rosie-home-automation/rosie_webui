@@ -4,7 +4,7 @@ angular.module('rosieApp.remotes')
       .state('app.remotes', {
         url: '/remotes',
         templateUrl: 'ng/remotes/index.tmpl.html',
-        controller: 'IndexController as indexCtrl',
+        controller: 'RemotesIndexController as remotesIndexCtrl',
         resolve: {
           remoteList: function(RemoteService) {
             return RemoteService.getList()
@@ -12,6 +12,6 @@ angular.module('rosieApp.remotes')
         }
       })
   }])
-  .controller('IndexController', ['$scope', 'remoteList', function($scope, remoteList) {
+  .controller('RemotesIndexController', ['$scope', 'remoteList', function($scope, remoteList) {
     $scope.remoteList = remoteList
   }])
