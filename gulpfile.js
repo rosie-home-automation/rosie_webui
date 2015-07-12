@@ -23,8 +23,10 @@ var depsFontGlob = 'bower_components/bootstrap/fonts/*'
 var depsImgGlob = 'bower_components/ng-slider/dist/img/*.png'
 var depsScriptsGlob = [
   'bower_components/angular/angular*.js*(.map)',
+  'bower_components/angular-sanitize/angular-sanitize*.js*(.map)',
   'bower_components/angular-bootstrap/ui-bootstrap*.js',
   'bower_components/angular-bootstrap-switch/dist/angular-bootstrap-switch*.js',
+  'bower_components/angular-translate/angular-translate*.js',
   'bower_components/angular-ui-router/release/angular-ui-router*.js',
   'bower_components/bootstrap-switch/dist/js/bootstrap-switch*.js',
   'bower_components/jquery/dist/jquery*.js',
