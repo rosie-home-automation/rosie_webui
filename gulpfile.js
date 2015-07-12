@@ -1,4 +1,5 @@
 var gulp = require('gulp')
+var ngTranslate = require('gulp-angular-translate')
 var clean = require('gulp-clean')
 var header = require('gulp-header')
 var footer = require('gulp-footer')
@@ -23,8 +24,10 @@ var depsFontGlob = 'bower_components/bootstrap/fonts/*'
 var depsImgGlob = 'bower_components/ng-slider/dist/img/*.png'
 var depsScriptsGlob = [
   'bower_components/angular/angular*.js*(.map)',
+  'bower_components/angular-sanitize/angular-sanitize*.js*(.map)',
   'bower_components/angular-bootstrap/ui-bootstrap*.js',
   'bower_components/angular-bootstrap-switch/dist/angular-bootstrap-switch*.js',
+  'bower_components/angular-translate/angular-translate*.js',
   'bower_components/angular-ui-router/release/angular-ui-router*.js',
   'bower_components/bootstrap-switch/dist/js/bootstrap-switch*.js',
   'bower_components/jquery/dist/jquery*.js',
@@ -39,6 +42,7 @@ var scriptsGlob = [
   'assets/ng/**/*.js'
 ]
 var templatesGlob = 'assets/ng/**/*.tmpl.html'
+var translateGlob = 'config/locale-*.json'
 var indexFile = 'assets/index.html'
 
 gulp.task('clean', function() {
@@ -98,7 +102,7 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('public/js'))
 })
 
-gulp.task('setup', ['dependencies', 'config', 'css', 'scripts', 'templates', 'index'])
+gulp.task('setup', ['dependencies', 'config', 'translate', 'css', 'scripts', 'templates', 'index'])
 
 gulp.task('templates', function() {
   return gulp.src(templatesGlob)
@@ -107,11 +111,18 @@ gulp.task('templates', function() {
     .pipe(gulp.dest('public/ng'))
 })
 
+gulp.task('translate', function() {
+  return gulp.src(translateGlob)
+    .pipe(ngTranslate('translations.js', {module: 'rosieApp.translations', standalone: false}))
+    .pipe(gulp.dest('assets/ng/translations'))
+})
+
 gulp.task('watch', function () {
   setupWatcher(configFile, ['config'], 'config')
   setupWatcher(cssGlob, ['css'], 'css')
   setupWatcher(scriptsGlob, ['scripts'], 'scripts')
   setupWatcher(templatesGlob, ['templates'], 'templates')
+  setupWatcher(translateGlob, ['translate'], 'translate')
   setupWatcher(indexFile, ['index'], 'index')
 })
 

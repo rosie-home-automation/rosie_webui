@@ -30,6 +30,8 @@
     "bootstrap": "~3.3.5",
     "jquery": "~2.1.4",
     "fontawesome": "~4.3.0",
-    "angular-bootstrap": "~0.13.0"
+    "angular-bootstrap": "~0.13.0",
+    "angular-translate": "~2.7.2",
+    "angular-sanitize": "~1.4.2"
   }
 }
