@@ -1,4 +1,5 @@
 var gulp = require('gulp')
+var clean = require('gulp-clean')
 var header = require('gulp-header')
 var footer = require('gulp-footer')
 var concat = require('gulp-concat')
@@ -12,6 +13,7 @@ var _ = require('underscore')
 var cssGlob = 'assets/scss/**/*.scss'
 var depsCssGlob = [
   'bower_components/angular/angular*.css',
+  'bower_components/angular-bootstrap/ui-bootstrap*.css',
   'bower_components/bootstrap/dist/css/bootstrap*.css',
   'bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch*.css',
   'bower_components/fontawesome/css/font-awesome*.css',
@@ -21,9 +23,9 @@ var depsFontGlob = 'bower_components/bootstrap/fonts/*'
 var depsImgGlob = 'bower_components/ng-slider/dist/img/*.png'
 var depsScriptsGlob = [
   'bower_components/angular/angular*.js*(.map)',
+  'bower_components/angular-bootstrap/ui-bootstrap*.js',
   'bower_components/angular-bootstrap-switch/dist/angular-bootstrap-switch*.js',
   'bower_components/angular-ui-router/release/angular-ui-router*.js',
-  'bower_components/bootstrap/dist/js/bootstrap*.js',
   'bower_components/bootstrap-switch/dist/js/bootstrap-switch*.js',
   'bower_components/jquery/dist/jquery*.js',
   'bower_components/ng-slider/dist/angular-awesome-slider*.js',
@@ -38,6 +40,11 @@ var scriptsGlob = [
 ]
 var templatesGlob = 'assets/ng/**/*.tmpl.html'
 var indexFile = 'assets/index.html'
+
+gulp.task('clean', function() {
+  return gulp.src('public/*', {read: false})
+    .pipe(clean())
+})
 
 gulp.task('css', function() {
   return gulp.src(cssGlob)

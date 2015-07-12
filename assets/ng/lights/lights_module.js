@@ -4,6 +4,5 @@ angular.module('rosieApp.lights', [
   'frapontillo.bootstrap-switch',
   'restangular',
   'rosieApp.config',
-  'rosieApp.controllerApi',
-  'rosieApp.shared'
+  'rosieApp.controllerApi'
 ])

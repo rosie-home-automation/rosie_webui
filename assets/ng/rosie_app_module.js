@@ -1,7 +1,6 @@
 angular.module('rosieApp', [
   'ui.router',
-  'rosieApp.shared',
-  'rosieApp.controllerApi',
+  'rosieApp.layout',
   'rosieApp.lights',
   'rosieApp.remotes',
   'rosieApp.tasks'
