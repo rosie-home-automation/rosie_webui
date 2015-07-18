@@ -12,9 +12,25 @@ angular.module('rosieApp.tasks')
         }
       })
   }])
-  .controller('TasksIndexController', ['$scope', 'TaskService', 'taskList', function($scope, TaskService, taskList) {
-    $scope.taskList = taskList
-    $scope.sendTask = function(taskName) {
-      var task = TaskService.one(taskName).post()
+  .controller('TasksIndexController', [
+    '$scope', '$modal', 'TaskService', 'taskList',
+    function($scope, $modal, TaskService, taskList) {
+      $scope.taskList = taskList
+      $scope.editTask = function(task) {
+        var editModal = $modal.open({
+          templateUrl: 'ng/tasks/form.tmpl.html',
+          controller: 'TaskEditFormController as tefCtrl',
+          resolve: {
+            task: function() {
+              return task
+            }
+          }
+        })
+
+        editModal.result.then(function(editedTask) {
+          console.log("EDITED", editedTask)
+          console.log("ORIGIN", task)
+        })
+      }
     }
-  }])
+  ])

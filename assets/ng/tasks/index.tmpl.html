@@ -7,13 +7,22 @@
       <thead>
         <tr>
           <th>Task</th>
+          <th>Run At</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat="task in taskList">
           <td>{{ "tasks." + task.type | translate }}</td>
-          <td><button ng-click="sendTask(task)">Queue</button></td>
+          <td>
+            {{ task.promote_at | amCalendar }}
+            <span class="text-muted">(Runs <span am-time-ago="task.promote_at"></span>)</span>
+          </td>
+          <td>
+            <div class="btn-group btn-group-sm" role="group">
+              <button class="btn btn-default" ng-click="editTask(task)">Edit</button>
+            </div>
+          </td>
         </tr>
       </tbody>
     </table>
