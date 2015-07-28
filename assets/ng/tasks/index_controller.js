@@ -16,6 +16,10 @@ angular.module('rosieApp.tasks')
     '$scope', '$modal', 'TaskService', 'taskList',
     function($scope, $modal, TaskService, taskList) {
       $scope.taskList = taskList
+
+      $scope.addTask = function() {
+        TaskService.post({type: 'fell_asleep_aid'})
+      }
       $scope.editTask = function(task) {
         var editModal = $modal.open({
           templateUrl: 'ng/tasks/form.tmpl.html',
@@ -28,9 +32,12 @@ angular.module('rosieApp.tasks')
         })
 
         editModal.result.then(function(editedTask) {
-          console.log("EDITED", editedTask)
-          console.log("ORIGIN", task)
+          task = editedTask
+          task.save()
         })
+      }
+      $scope.deleteTask = function(task) {
+        task.remove()
       }
     }
   ])

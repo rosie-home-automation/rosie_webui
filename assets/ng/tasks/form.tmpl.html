@@ -1,8 +1,18 @@
 <div class="modal-header">
   <h3 class="modal-title">{{ "tasks." + task.type | translate }}</h3>
 </div>
-<div class="modal-body">
-  
+<div class="modal-body container-fluid">
+  <div class="row">
+    <div class="col-xs-12">
+      <label>Run At ({{ task.promote_at }})</label>
+      <div class="input-group">
+        <input format-date datetime-picker="yyyy-MM-dd HH:mm" is-open="promote_at_open" ng-model="task.promote_at" timepicker-options="timeOptions" type="text" class="form-control" />
+        <span class="input-group-addon" ng-click="openCalendar($event)">
+          <i class="glyphicon glyphicon-calendar"></i>
+        </span>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="modal-footer">
   <button class="btn btn-primary" ng-click="ok()">OK</button>
