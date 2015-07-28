@@ -33,6 +33,7 @@
     "angular-bootstrap": "~0.13.0",
     "angular-translate": "~2.7.2",
     "angular-sanitize": "~1.4.2",
-    "angular-moment": "~0.10.1"
+    "angular-moment": "~0.10.1",
+    "bootstrap-ui-datetime-picker": "~1.1.5"
   }
 }
