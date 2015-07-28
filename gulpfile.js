@@ -31,6 +31,7 @@ var depsScriptsGlob = [
   'bower_components/angular-translate/angular-translate*.js',
   'bower_components/angular-ui-router/release/angular-ui-router*.js',
   'bower_components/bootstrap-switch/dist/js/bootstrap-switch*.js',
+  'bower_components/bootstrap-ui-datetime-picker/dist/datetime-picker*.js',
   'bower_components/jquery/dist/jquery*.js',
   'bower_components/moment/min/moment*.js',
   'bower_components/ng-slider/dist/angular-awesome-slider*.js',
