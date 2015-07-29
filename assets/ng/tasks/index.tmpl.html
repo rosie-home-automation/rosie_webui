@@ -12,15 +12,19 @@
         </tr>
       </thead>
       <tbody>
+        <div class="btn-group">
+          <button ng-click="addTask()" class="btn btn-default">Add Task</button>
+        </div>
         <tr ng-repeat="task in taskList">
           <td>{{ "tasks." + task.type | translate }}</td>
           <td>
-            {{ task.promote_at | amCalendar }}
+            {{ task.promote_at | date: "yyyy-MM-dd HH:mm" }}
             <span class="text-muted">(Runs <span am-time-ago="task.promote_at"></span>)</span>
           </td>
           <td>
             <div class="btn-group btn-group-sm" role="group">
               <button class="btn btn-default" ng-click="editTask(task)">Edit</button>
+              <button class="btn btn-default" ng-click="deleteTask(task)">Delete</button>
             </div>
           </td>
         </tr>

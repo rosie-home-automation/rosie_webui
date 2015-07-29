@@ -15,3 +15,31 @@ angular.module('rosieApp.tasks')
       }
     }
   ])
+  .directive('formatDate', ['$filter', function($filter) {
+    return {
+      restrict: 'A',
+      require: '?ngModel',
+      link: function(scope, element, attrs, ngModel) {
+        ngModel.$formatters.push(function(modelValue) {
+          return $filter('date')(modelValue, 'yyyy-MM-dd HH:mm')
+        })
+        ngModel.$parsers.push(function(viewValue) {
+          return viewValue.getTime()
+        })
+      },
+      controller: ['$scope', function($scope) {
+        $scope.timeOptions = {
+          showMeridian: false
+        }
+
+        $scope.promote_at_open = false
+
+        $scope.openCalendar = function(event) {
+          event.preventDefault()
+          event.stopPropagation()
+
+          $scope.promote_at_open = true
+        }
+      }]
+    }
+  }])
