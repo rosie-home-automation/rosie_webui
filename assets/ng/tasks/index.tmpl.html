@@ -22,9 +22,15 @@
             <span class="text-muted">(Runs <span am-time-ago="task.promote_at"></span>)</span>
           </td>
           <td>
-            <div class="btn-group btn-group-sm" role="group">
-              <button class="btn btn-default" ng-click="editTask(task)">Edit</button>
-              <button class="btn btn-default" ng-click="deleteTask(task)">Delete</button>
+            <div class="btn-group btn-group-sm" dropdown>
+              <button class="btn btn-primary" ng-click="editTask(task)">Edit</button>
+              <button class="btn btn-primary dropdown-toggle" dropdown-toggle>
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li class="menuitem"><a href="#" ng-click="deleteTask(task)">Delete</a></li>
+              </ul>
             </div>
           </td>
         </tr>
