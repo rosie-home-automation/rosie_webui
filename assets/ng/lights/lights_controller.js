@@ -7,14 +7,15 @@ angular.module('rosieApp.lights')
         controller: 'LightsController as lightsCtrl',
         resolve: {
           lights: function(LightService) {
-            return LightService.getList()
+            return LightService.findAll()
           }
         }
       })
   }])
-  .controller('LightsController', ['$scope', 'lights', function($scope, lights) {
-    $scope.lights = lights
-  }])
+  .controller('LightsController', ['$scope', 'LightService',
+    function($scope, LightService) {
+      LightService.bindAll({}, $scope, 'lights')
+    }])
   .directive('lightRow', function() {
     return {
       scope: {

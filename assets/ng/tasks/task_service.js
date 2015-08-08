@@ -1,4 +1,4 @@
 angular.module('rosieApp.tasks')
-  .service('TaskService', ['ControllerApi', function(controllerApi) {
-    return controllerApi.service('queue')
+  .factory('Task', ['DS', function(DS) {
+    return DS.defineResource('queue')
   }])

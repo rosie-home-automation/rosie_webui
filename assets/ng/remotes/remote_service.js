@@ -1,4 +1,4 @@
 angular.module('rosieApp.remotes')
-  .service('RemoteService', ['ControllerApi', function(controllerApi) {
-    return controllerApi.service('remotes')
+  .factory('RemoteService', ['DS', function(DS) {
+    return DS.defineResource('remotes')
   }])
