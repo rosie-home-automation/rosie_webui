@@ -1,9 +1,9 @@
 <div class="col-md-4">
   <div><strong>{{ light.loc }}: {{light.name}}</strong></div>
   <div ng-if="light.classes['37']" ng-init="blah = 0">
-    <input bs-switch type="checkbox" ng-change="light.put()" ng-model="light.classes['37']['0'].value" switch-size="small" />
+    <input bs-switch ng-model="light.classes['37']['0'].value" ng-change="light.DSSave()" type="checkbox" switch-size="small" />
   </div>
   <div ng-if="light.classes['38']" class="slider-container">
-    <input slider ng-model="light.classes['38']['0'].value" ng-change="light.put()" type="text" options="{from: 0, to: 99, step: 1, skin: 'round'}" />
+    <input slider ng-model="light.classes['38']['0'].value" ng-change="light.DSSave()" type="text" options="{from: 0, to: 99, step: 1, skin: 'round'}" />
   </div>
 </div>
