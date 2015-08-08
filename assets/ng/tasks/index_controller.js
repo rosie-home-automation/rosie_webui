@@ -6,19 +6,19 @@ angular.module('rosieApp.tasks')
         templateUrl: 'ng/tasks/index.tmpl.html',
         controller: 'TasksIndexController as tasksIndexCtrl',
         resolve: {
-          taskList: ['TaskService', function(TaskService) {
-            return TaskService.getList()
+          taskList: ['Task', function(Task) {
+            return Task.findAll()
           }]
         }
       })
   }])
   .controller('TasksIndexController', [
-    '$scope', '$modal', 'TaskService', 'taskList',
-    function($scope, $modal, TaskService, taskList) {
-      $scope.taskList = taskList
+    '$scope', '$modal', 'Task', 'taskList',
+    function($scope, $modal, Task, taskList) {
+      Task.bindAll({}, $scope, 'taskList')
 
       $scope.addTask = function() {
-        TaskService.post({type: 'fell_asleep_aid'})
+        Task.create({type: 'fell_asleep_aid'})
       }
       $scope.editTask = function(task) {
         var editModal = $modal.open({
@@ -32,12 +32,12 @@ angular.module('rosieApp.tasks')
         })
 
         editModal.result.then(function(editedTask) {
-          task = editedTask
-          task.save()
+          Task.update(task.id, editedTask)
+          task.DSEject()// tasks get recreated
         })
       }
       $scope.deleteTask = function(task) {
-        task.remove()
+        task.DSDestroy()
       }
     }
   ])

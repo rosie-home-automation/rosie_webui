@@ -1,10 +1,8 @@
 angular.module('rosieApp.controllerApi', [
-  'restangular',
+  'js-data',
   'rosieApp.config'
 ])
-  .service('ControllerApi', ['Restangular', 'CONTROLLER_API_URL', function(restangular, CONTROLLER_API_URL) {
-    return restangular.withConfig(function(RestangularConfigurer) {
-      RestangularConfigurer.setBaseUrl(CONTROLLER_API_URL)
-      RestangularConfigurer.setDefaultHttpFields({withCredentials: true})
-    })
-  }])
+  .config(['DSHttpAdapterProvider', 'CONTROLLER_API_URL',
+    function(DSHttpAdapterProvider, CONTROLLER_API_URL) {
+      DSHttpAdapterProvider.defaults.basePath = CONTROLLER_API_URL
+    }])

@@ -7,7 +7,7 @@ angular.module('rosieApp.remotes')
         controller: 'RemotesIndexController as remotesIndexCtrl',
         resolve: {
           remoteList: function(RemoteService) {
-            return RemoteService.getList()
+            return RemoteService.findAll()
           }
         }
       })
