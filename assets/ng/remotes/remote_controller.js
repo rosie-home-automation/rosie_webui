@@ -44,12 +44,12 @@ angular.module('rosieApp.remotes')
         }
       })
   }])
-  .controller('RemoteController', ['$scope', 'RemoteService', function($scope, RemoteService) {
+  .controller('RemoteController', ['$scope', 'Remote', function($scope, Remote) {
     $scope.remote = {
       name: null
     }
     $scope.sendCmd = function(command) {
-      RemoteService.one($scope.remote.name).get({command: command})
+      Remote.update($scope.remote.name, {command: command}, {cacheResponse: false})
     }
   }])
   .controller('RemoteReceiverController', ['$scope', function($scope) {
