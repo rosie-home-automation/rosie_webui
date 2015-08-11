@@ -6,8 +6,8 @@ angular.module('rosieApp.remotes')
         templateUrl: 'ng/remotes/index.tmpl.html',
         controller: 'RemotesIndexController as remotesIndexCtrl',
         resolve: {
-          remoteList: function(RemoteService) {
-            return RemoteService.findAll()
+          remoteList: function(Remote) {
+            return Remote.findAll()
           }
         }
       })
