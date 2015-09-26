@@ -1,17 +1,4 @@
 angular.module('rosieApp.lights')
-  .config(['$stateProvider', 'LightServiceProvider', function($stateProvider, lightServiceProvider) {
-    $stateProvider
-      .state('app.lights', {
-        url: '/lights',
-        templateUrl: 'ng/lights/index.tmpl.html',
-        controller: 'LightsController as lightsCtrl',
-        resolve: {
-          lights: function(LightService) {
-            return LightService.findAll()
-          }
-        }
-      })
-  }])
   .controller('LightsController', ['$scope', 'LightService',
     function($scope, LightService) {
       LightService.bindAll({}, $scope, 'lights')
