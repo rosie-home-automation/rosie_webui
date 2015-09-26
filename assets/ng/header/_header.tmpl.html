@@ -7,14 +7,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a ui-sref="app.lights" class="navbar-brand">Rosie</a>
+      <a ui-sref="{{ defaultRoute }}" class="navbar-brand">Rosie</a>
     </div>
 
     <div class="navbar-header collapse navbar-collapse" collapse="navCollapsed">
       <ul class="nav navbar-nav">
-        <li><a ui-sref="app.lights" ng-click="navCollapse()">Lights</a></li>
-        <li><a ui-sref="app.remotes" ng-click="navCollapse()">Remotes</a></li>
-        <li><a ui-sref="app.tasks" ng-click="navCollapse()">Tasks</a></li>
+        <li ng-repeat="item in menu"><a ui-sref="{{ item.sref }}" ng-click="navCollapse()">{{ item.title }}</a></li>
       </ul>
     </div>
   </div>
