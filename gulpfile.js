@@ -7,8 +7,10 @@ var concat = require('gulp-concat')
 var jshint = require('gulp-jshint')
 var cached = require('gulp-cached')
 var remember = require('gulp-remember')
+var rename = require('gulp-rename')
 var ngConfig = require('gulp-ng-config')
 var sass = require('gulp-sass')
+var fs = require('fs')
 var _ = require('underscore')
 
 var cssGlob = 'assets/scss/**/*.scss'
@@ -42,7 +44,10 @@ var depsScriptsGlob = [
   'bower_components/restangular/dist/restangular*.js',
   'bower_components/underscore/underscore*.js*(.map)'
 ]
-var configFile = 'config/config.json'
+var configDir = 'config/'
+var configFileName = 'config.json'
+var configFile = configDir + configFileName
+var exampleConfigFile = configDir + 'config.example.json'
 var scriptsGlob = [
   'assets/ng/**/*_module.js',
   'assets/ng/**/*.js'
@@ -64,7 +69,17 @@ gulp.task('css', function() {
     .pipe(gulp.dest('public/css'))
 })
 
-gulp.task('config', function() {
+gulp.task('config', ['config:setup', 'config:build'])
+
+gulp.task('config:setup', function() {
+  if (!fs.existsSync(configFile)) {
+    gulp.src(exampleConfigFile)
+      .pipe(rename(configFileName))
+      .pipe(gulp.dest(configDir))
+  }
+})
+
+gulp.task('config:build', function() {
   return gulp.src(configFile)
     .pipe(ngConfig('rosieApp.config'))
     .pipe(gulp.dest('assets/ng/config'))
