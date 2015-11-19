@@ -1,4 +1,17 @@
 angular.module('rosieApp.tasks')
+  .config(['$stateProvider', function($stateProvider) {
+    $stateProvider
+      .state('app.tasks', {
+        url: '/tasks',
+        templateUrl: 'ng/tasks/index.tmpl.html',
+        controller: 'TasksIndexController as tasksIndexCtrl',
+        resolve: {
+          taskList: ['Task', function(Task) {
+            return Task.findAll()
+          }]
+        }
+      })
+  }])
   .controller('TasksIndexController', [
     '$scope', '$modal', 'Task', 'taskList',
     function($scope, $modal, Task, taskList) {
