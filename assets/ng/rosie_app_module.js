@@ -5,3 +5,6 @@ angular.module('rosieApp', [
   'rosieApp.remotes',
   'rosieApp.tasks'
 ])
+  .run(function($rootScope) {
+    $rootScope.$on("$stateChangeError", console.log.bind(console));
+  })
