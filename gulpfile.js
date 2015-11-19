@@ -40,8 +40,6 @@ var depsScriptsGlob = [
   'bower_components/jquery/dist/jquery*.js',
   'bower_components/moment/min/moment*.js',
   'bower_components/ng-slider/dist/angular-awesome-slider*.js',
-  'bower_components/restangular/dist/restangular*.js',
-  'bower_components/restangular/dist/restangular*.js',
   'bower_components/underscore/underscore*.js*(.map)'
 ]
 var configDir = 'config/'

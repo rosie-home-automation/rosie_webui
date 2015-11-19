@@ -2,9 +2,8 @@ angular.module('rosieApp.lights', [
   'ui.router',
   'angularAwesomeSlider',
   'frapontillo.bootstrap-switch',
-  'restangular',
+  'js-data',
   'rosieApp.config',
-  'rosieApp.controllerApi',
   'rosieApp.header'
 ])
   .config(['$stateProvider', 'LightServiceProvider', 'MenuProvider',
