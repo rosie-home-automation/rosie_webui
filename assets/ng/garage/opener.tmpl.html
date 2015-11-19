@@ -1,0 +1,10 @@
+<div class="container-fluid">
+  <div class="jumbotron text-center">
+     <h1>The door is <span translate="{{ 'garage.door.status.' + status }}"></span></h1>
+  </div>
+  <div class="row text-center">
+    <button class="btn btn-default btn-primary btn-lg" ng-click="toggleDoor()">
+      {{ 'garage.door.opener.' + status | translate }} the door
+    </button>
+  </div>
+</div>

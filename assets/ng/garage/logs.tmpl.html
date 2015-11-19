@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>User</th>
+          <th>Type</th>
+          <th>Message</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="log in logList | orderBy : '-createdAt'">
+          <td>{{ log.createdAt | date: "yyyy-MM-dd HH:mm:ss" }}</td>
+          <td>{{ log.user.name }}</td>
+          <td>{{ log.type }}</td>
+          <td>
+            {{ log.message }} {{ logDetailStatus[log.id] }}
+            <div ng-if="logDetailStatus[log.id]">
+              {{ log.data | json }}
+            </div>
+          </td>
+          <td>
+            <div class="btn-group btn-group-sm" dropdown>
+              <button class="btn btn-primary" ng-click="toggleDetails(log)">Details</button>
+              <button class="btn btn-primary dropdown-toggle" dropdown-toggle>
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li class="menuitem"><a href="#" ng-click="todo(log); $event.preventDefault()">Add Credential</a></li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

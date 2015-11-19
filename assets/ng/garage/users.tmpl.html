@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="btn-group">
+      <button ng-click="addUser()" class="btn btn-success">Add User</button>
+    </div>
+  </div>
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="user in userList">
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>
+            <div class="btn-group btn-group-sm" dropdown>
+              <button class="btn btn-primary" ng-click="editUser(user)">Edit</button>
+              <button class="btn btn-primary dropdown-toggle" dropdown-toggle>
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li class="menuitem"><a href="#" ng-click="deleteUser(user); $event.preventDefault()">Delete</a></li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
