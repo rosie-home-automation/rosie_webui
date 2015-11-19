@@ -1,0 +1,10 @@
+<li dropdown>
+  <a href="#" class="dropdown-toggle" dropdown-toggle>
+    {{ item.title }}
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li menu-base ng-repeat="item in item.submenu" item="item" nav-collapse="navCollapse()"></li>
+  </ul>
+</li>
