@@ -1,4 +1,16 @@
 {
+  "garage": {
+    "door": {
+      "status": {
+        "open": "<span class=\"label label-success\">OPEN</span>",
+        "closed": "<span class=\"label label-danger\">CLOSED</span>"
+      },
+      "opener": {
+        "open": "CLOSE",
+        "closed": "OPEN"
+      }
+    }
+  },
   "tasks": {
     "fell_asleep_aid": "Fell Asleep Aid"
   }
