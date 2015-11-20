@@ -16,13 +16,27 @@
           <td>{{ log.user.name }}</td>
           <td>{{ log.type }}</td>
           <td>
-            {{ log.message }} {{ logDetailStatus[log.id] }}
+            {{ log.message }}
             <div ng-if="logDetailStatus[log.id]">
-              {{ log.data | json }}
+              <!-- TODO-BEGIN: split into directive -->
+              <dl class="dl-horizontal">
+                <dt ng-repeat-start="(key, value) in log.data">{{'garage.log.details.' + key | translate}}</dt>
+                <dd ng-repeat-end>
+                  <span ng-if="log.message == 'VALID'" ng-switch on="key">
+                    <span ng-switch-when="credentialId">{{log.credential.name}}</span>
+                    <span ng-switch-default>{{value}}</span>
+                  </span>
+                  <span ng-if="log.message == 'INVALID'" ng-switch on="key">
+                    <span ng-switch-when="value">{{value}} ({{value.length}})</span>
+                    <span ng-switch-default>{{value}}</span>
+                  </span>
+                </dd>
+              </dl>
+              <!-- TODO-END: split into directive -->
             </div>
           </td>
           <td>
-            <div class="btn-group btn-group-sm" dropdown>
+            <div ng-if="log.type == 'Authorize'" class="btn-group btn-group-sm" dropdown>
               <button class="btn btn-primary" ng-click="toggleDetails(log)">Details</button>
               <button class="btn btn-primary dropdown-toggle" dropdown-toggle>
                 <span class="caret"></span>
