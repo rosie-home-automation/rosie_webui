@@ -31,7 +31,6 @@ angular.module('rosieApp.garage')
       $scope.logDetailStatus = {}
       $scope.toggleDetails = function(log) {
         $scope.logDetailStatus[log.id] = !$scope.logDetailStatus[log.id]
-        console.log("DS", log.id, $scope.logDetailStatus[log.id])
       }
     }
   ])
