@@ -1,4 +1,7 @@
 angular.module('rosieApp.tasks')
-  .factory('Task', ['DS', function(DS) {
-    return DS.defineResource('queue')
+  .factory('Task', ['DS', 'CONTROLLER_API_URL', function(DS, CONTROLLER_API_URL) {
+    return DS.defineResource({
+      name: 'queue',
+      basePath: CONTROLLER_API_URL
+    })
   }])

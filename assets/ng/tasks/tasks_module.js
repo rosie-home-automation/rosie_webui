@@ -1,25 +1,14 @@
 angular.module('rosieApp.tasks', [
   'angularMoment',
-  'rosieApp.translations',
-  'rosieApp.header',
+  'js-data',
   'ui.bootstrap',
   'ui.bootstrap.datetimepicker',
-  'ui.router'
+  'ui.router',
+  'rosieApp.translations',
+  'rosieApp.header'
 ])
-  .config(['$stateProvider', 'MenuProvider', function($stateProvider, menuProvider) {
-    $stateProvider
-      .state('app.tasks', {
-        url: '/tasks',
-        templateUrl: 'ng/tasks/index.tmpl.html',
-        controller: 'TasksIndexController as tasksIndexCtrl',
-        resolve: {
-          taskList: ['Task', function(Task) {
-            return Task.findAll()
-          }]
-        }
-      })
-
-    menuProvider.add({
+  .config(['MenuProvider', function(MenuProvider) {
+    MenuProvider.add({
       title: 'Tasks',
       sref: 'app.tasks'
     })

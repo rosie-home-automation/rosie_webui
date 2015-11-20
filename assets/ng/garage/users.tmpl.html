@@ -1,37 +1,31 @@
-<ol class="breadcrumb">
-  <li>Tasks</li>
-</ol>
 <div class="container-fluid">
   <div class="row">
     <div class="btn-group">
-      <button ng-click="addTask()" class="btn btn-success">Add Task</button>
+      <button ng-click="addUser()" class="btn btn-success">Add User</button>
     </div>
   </div>
   <div class="row">
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Task</th>
-          <th>Run At</th>
+          <th>Id</th>
+          <th>Name</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="task in taskList">
-          <td>{{ "tasks." + task.type | translate }}</td>
-          <td>
-            <div>{{ task.promote_at | date: "yyyy-MM-dd HH:mm" }}</div>
-            <div class="text-muted">Runs <span am-time-ago="task.promote_at"></span></div>
-          </td>
+        <tr ng-repeat="user in userList">
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
           <td>
             <div class="btn-group btn-group-sm" dropdown>
-              <button class="btn btn-primary" ng-click="editTask(task)">Edit</button>
+              <button class="btn btn-primary" ng-click="editUser(user)">Edit</button>
               <button class="btn btn-primary dropdown-toggle" dropdown-toggle>
                 <span class="caret"></span>
                 <span class="sr-only">Toggle Dropdown</span>
               </button>
               <ul class="dropdown-menu" role="menu">
-                <li class="menuitem"><a href="#" ng-click="deleteTask(task); $event.preventDefault()">Delete</a></li>
+                <li class="menuitem"><a href="#" ng-click="deleteUser(user); $event.preventDefault()">Delete</a></li>
               </ul>
             </div>
           </td>

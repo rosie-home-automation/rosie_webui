@@ -1,0 +1,19 @@
+<form name="userForm">
+  <div class="modal-header">
+    <h3 class="modal-title">{{ titlePrefix }} User</h3>
+  </div>
+  <div class="modal-body container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <label>Name</label>
+        <div class="input-group">
+          <input ng-model="user.name" required type="text" class="form-control" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <input type="submit" class="btn btn-primary" ng-click="ok()" value="OK"/>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+  </div>
+</form>

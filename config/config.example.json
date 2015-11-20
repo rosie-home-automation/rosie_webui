@@ -1,0 +1,5 @@
+{
+  "CONTROLLER_API_URL": "http://localhost/rosie_api",
+  "GARAGE_API_URL": "http://localhost/garage_api",
+  "DEFAULT_LOCALE": "en_US"
+}

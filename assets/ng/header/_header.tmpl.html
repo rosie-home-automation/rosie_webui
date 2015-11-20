@@ -12,7 +12,7 @@
 
     <div class="navbar-header collapse navbar-collapse" collapse="navCollapsed">
       <ul class="nav navbar-nav">
-        <li ng-repeat="item in menu"><a ui-sref="{{ item.sref }}" ng-click="navCollapse()">{{ item.title }}</a></li>
+        <li menu-base ng-repeat="menuItem in menu" item="menuItem" nav-collapse="navCollapse()"></li>
       </ul>
     </div>
   </div>

@@ -2,13 +2,12 @@ angular.module('rosieApp.lights', [
   'ui.router',
   'angularAwesomeSlider',
   'frapontillo.bootstrap-switch',
-  'restangular',
+  'js-data',
   'rosieApp.config',
-  'rosieApp.controllerApi',
   'rosieApp.header'
 ])
   .config(['$stateProvider', 'LightServiceProvider', 'MenuProvider',
-    function($stateProvider, lightServiceProvider, menuProvider) {
+    function($stateProvider, lightServiceProvider, MenuProvider) {
       $stateProvider
         .state('app.lights', {
           url: '/lights',
@@ -21,7 +20,7 @@ angular.module('rosieApp.lights', [
           }
         })
 
-      menuProvider.add({
+      MenuProvider.add({
         title: 'Lights',
         sref: 'app.lights'
       })
