@@ -9,6 +9,10 @@ angular.module('rosieApp.garage')
           user: {
             localField: 'user',
             localKey: 'userId'
+          },
+          credential: {
+            localField: 'credential',
+            localKey: 'data.credentialId'
           }
         }
       }

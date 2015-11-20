@@ -8,11 +8,12 @@ angular.module('rosieApp.garage')
             templateUrl: 'ng/garage/logs.tmpl.html',
             controller: 'GarageLogsController as garageLogsCtrl',
             resolve: {
-              logList: ['Log', 'User', function(Log, User) {
+              logList: ['Credential', 'Log', 'User', function(Credential, Log, User) {
                 return Log.findAll()
                   .then(function(logList) {
                     _.each(logList, function(log) {
                       User.find(log.userId)
+                      Credential.find(_.result(log.data, 'credentialId'))
                     })
                   })
               }]
@@ -31,7 +32,6 @@ angular.module('rosieApp.garage')
       $scope.logDetailStatus = {}
       $scope.toggleDetails = function(log) {
         $scope.logDetailStatus[log.id] = !$scope.logDetailStatus[log.id]
-        console.log("DS", log.id, $scope.logDetailStatus[log.id])
       }
     }
   ])

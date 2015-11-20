@@ -1,5 +1,5 @@
 angular.module('rosieApp.garage')
-  .factory('Credential', ['DS', 'GARAGE_API_URL', 'User', function(DS, GARAGE_API_URL, User) {
+  .factory('Credential', ['DS', 'GARAGE_API_URL', function(DS, GARAGE_API_URL) {
     return DS.defineResource({
       name: 'credential',
       endpoint: 'credentials',

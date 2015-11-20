@@ -9,6 +9,14 @@
         "open": "CLOSE",
         "closed": "OPEN"
       }
+    },
+    "log": {
+      "details": {
+        "authType": "Auth Type",
+        "credentialId": "Credential",
+        "doorAction": "Door Action",
+        "value": "Value"
+      }
     }
   },
   "tasks": {
