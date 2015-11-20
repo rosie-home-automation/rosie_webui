@@ -38,11 +38,11 @@
           <td>
             <div ng-if="log.type == 'Authorize'" class="btn-group btn-group-sm" dropdown>
               <button class="btn btn-primary" ng-click="toggleDetails(log)">Details</button>
-              <button class="btn btn-primary dropdown-toggle" dropdown-toggle>
+              <button ng-if="log.message == 'INVALID'" class="btn btn-primary dropdown-toggle" dropdown-toggle>
                 <span class="caret"></span>
                 <span class="sr-only">Toggle Dropdown</span>
               </button>
-              <ul class="dropdown-menu" role="menu">
+              <ul ng-if="log.message == 'INVALID'" class="dropdown-menu" role="menu">
                 <li class="menuitem"><a href="#" ng-click="todo(log); $event.preventDefault()">Add Credential</a></li>
               </ul>
             </div>
